@@ -26,6 +26,9 @@ const [userData,setUserData] = useState({
             const storedEmail = await SecureStore.getItemAsync('username');
             const storedPassword = await SecureStore.getItemAsync('password');
             if (email === storedEmail && password === storedPassword) {
+                // Store the login status in SecureStore
+                // This is to ensure that the ser is logged in before being able to make predictions
+                await SecureStore.setItemAsync('isLoggedIn', 'true');
                 alert("Login successful!");
                 router.push('/')
             } else {
@@ -41,6 +44,10 @@ const handleInputChange = (field: string, value: string) => {
   };
 
   const onPressLogin = () => {
+    if (!userData.email || !userData.password) {
+      alert("Please fill in all fields.");
+      return;
+    }
     validateCredentials(userData.email, userData.password);
     };
 const onPressForgotPassword = () => {
@@ -117,7 +124,7 @@ color:"white"
 },
 forgotAndSignUpText:{
 color:"white",
-fontSize:11
+fontSize:16
 },
 loginBtn:{
 width:"80%",

@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   },
   forgotAndSignUpText:{
     color:"white",
-    fontSize:11
+    fontSize:16
   },
   loginBtn:{
     width:"80%",

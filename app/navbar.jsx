@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from "expo-router";
 
 const router = useRouter()
-
 export default function Navbar(){
     return(
         <View style={styles.navbar}>

@@ -1,18 +1,29 @@
 
 // Import necessary dependencies
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Text, TextInput, StyleSheet, ScrollView, SafeAreaView, Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import Navbar from './navbar';
 import { score } from './model_funtion';
+import { isAuthenticated } from './auth'
 
 // Define the InputData component
 export default function InputData() {
   // Initialize router hook
   const router = useRouter();
 
+useEffect(() => {
+    const checkAuth = async () => {
+      const loggedIn = await isAuthenticated();
+      if (!loggedIn) {
+        alert("Please log in to access this page.");
+        router.push('/login'); // Redirect to home/login page
+      }
+    };
+    checkAuth();
+  }, []);
   // Initialize form state with empty values
   const [form, setForm] = useState({
     age: '',
@@ -61,7 +72,7 @@ export default function InputData() {
   };
 
   return (
-    <LinearGradient colors={['#ef8e38', '#0099f7']} style={styles.gradientContainer}>
+      <LinearGradient colors={['#ef8e38', '#0099f7']} style={styles.gradientContainer}>
       <SafeAreaView style={styles.container}>
         <Navbar />
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
@@ -123,6 +134,7 @@ export default function InputData() {
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
+    
   );
 }
 
