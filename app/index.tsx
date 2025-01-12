@@ -1,9 +1,10 @@
-import { Text, View, StyleSheet, SafeAreaView, Image, Button, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, SafeAreaView, Image, Button, TouchableOpacity, Pressable } from "react-native";
 import { Card} from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 const BackgroundImage = require('../assets/images/heart.png') 
 import { useRouter } from "expo-router";
 import Navbar from './navbar'
+import { isAuthenticated } from "./auth";
 
 const router = useRouter()
 
@@ -19,12 +20,15 @@ export default function Index() {
           <Text style={styles.text}>
           Welcome To Heart Disease Prediction Portal
           </Text>
-          <Button onPress={()=> router.push('/input')}
+        <Pressable style={styles.button} onPress={async () => 
+          await isAuthenticated()?
+          router.push('/input'):
+          router.push('/signup')
           
-  title="Start Prediction"
-  color="#841584"
-  accessibilityLabel="Learn more about this purple button"
-/>
+          }>
+            <Text>Get Started</Text>
+          </Pressable>  
+        
         </Card.Content>
        </Card>
         </View>
@@ -88,5 +92,15 @@ background: {
   top: 0,
   height: 300,
 },
+button:{
+  width: "80%",
+    backgroundColor: "#841584",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    marginBottom: 10
+}
   
 })

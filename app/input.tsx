@@ -169,15 +169,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   button: {
-    marginTop: 20,
-    marginBottom: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: '#841584',
+    width: "80%",
+    backgroundColor: "#841584",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    marginBottom: 10
   },
   buttonText: {
     color: '#fff',
