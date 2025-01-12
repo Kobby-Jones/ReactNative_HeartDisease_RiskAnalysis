@@ -23,9 +23,6 @@ jobs:
   
         - name: 📦 Install dependencies
           run: npm install
-          
-        - name: 📦 Initialize EAS
-          run: eas init
   
         - name: 🚀 Build app
           run: eas build --non-interactive --platform android
