@@ -32,6 +32,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d42cd636-6eb2-4896-bfa4-de1c6af2edc2"
+      }
+    },
+    "owner": "kobby_jones"
   }
 }
