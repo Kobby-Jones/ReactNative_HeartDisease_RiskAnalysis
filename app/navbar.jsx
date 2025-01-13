@@ -44,6 +44,14 @@ export default function Navbar(){
           Login
         </Text>                   
       </TouchableOpacity>
+      <TouchableOpacity style={styles.navItem} onPress={() => 
+        router.push('/imagepicker')
+        
+        }>
+        <Text style={styles.navText}>
+          Image Detect
+        </Text>                   
+      </TouchableOpacity>
     </View>
 
     );

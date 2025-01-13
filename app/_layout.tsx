@@ -18,6 +18,9 @@ export default function RootLayout() {
       <Stack.Screen name="signup"
       options={{headerShown: false}}
       />
+      <Stack.Screen name="imagepicker"
+      options={{headerShown: false}}
+      />
     </Stack>
   );
 }
